@@ -8,3 +8,9 @@ const MessageSchema = new mongoose.Schema({
     ref: 'Conversation',
     required: true
   },
+
+  sender: {
+    type: String,
+    enum: ['visitor', 'ai'],
+    required: true
+  },
