@@ -14,3 +14,7 @@ const MessageSchema = new mongoose.Schema({
     enum: ['visitor', 'ai'],
     required: true
   },
+   text: {
+    type: String,
+    required: true
+  },
