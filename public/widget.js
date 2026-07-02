@@ -41,3 +41,18 @@
     #varta-launcher:active {
       transform: scale(0.95);
     }
+
+     /* Launcher SVGs */
+    #varta-launcher svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s ease;
+    }
+    #varta-launcher .varta-icon-close {
+      display: none;
+    }
