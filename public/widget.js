@@ -16,3 +16,21 @@
 
    // 2. Inject CSS Styles directly into host head
   const css = `
+
+   /* Floating Launcher Button */
+    #varta-launcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999999;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
