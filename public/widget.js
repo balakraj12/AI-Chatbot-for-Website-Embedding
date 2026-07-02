@@ -9,3 +9,7 @@
     const scripts = document.getElementsByTagName('script');
     return scripts[scripts.length - 1];
   })();
+
+   const scriptSrc = scriptTag ? scriptTag.src : 'http://localhost:5000/widget.js';
+  const backendUrl = new URL(scriptSrc).origin;
+  const iframeUrl = `${backendUrl}/widget-frame`;
