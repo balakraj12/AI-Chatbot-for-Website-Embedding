@@ -14,4 +14,5 @@
   const backendUrl = new URL(scriptSrc).origin;
   const iframeUrl = `${backendUrl}/widget-frame`;
 
-  
+   // 2. Inject CSS Styles directly into host head
+  const css = `
