@@ -7,3 +7,9 @@ const VisitorSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true
+    },
+  profession: {
+    type: String,
+    required: true,
+    trim: true
+  },
