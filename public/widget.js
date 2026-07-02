@@ -34,3 +34,10 @@
       z-index: 999999;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+       #varta-launcher:hover {
+      transform: scale(1.08) rotate(5deg);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+    #varta-launcher:active {
+      transform: scale(0.95);
+    }
