@@ -153,3 +153,12 @@
     isChatOpen = !isChatOpen;
     const chatIcon = launcher.querySelector('.varta-icon-chat');
     const closeIcon = launcher.querySelector('.varta-icon-close');
+
+    if (isChatOpen) {
+      container.style.display = 'block';
+      // Reflow browser render to allow transition
+      container.offsetHeight;
+      container.classList.add('varta-visible');
+      launcher.classList.add('varta-chat-open');
+      chatIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
