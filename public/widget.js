@@ -112,3 +112,7 @@
       display: block;
     }
   `;
+
+   const styleTag = document.createElement('style');
+  styleTag.innerHTML = css;
+  document.head.appendChild(styleTag);
