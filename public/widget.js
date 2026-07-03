@@ -162,3 +162,11 @@
       launcher.classList.add('varta-chat-open');
       chatIcon.style.display = 'none';
       closeIcon.style.display = 'block';
+
+       // Focus on the iframe if input onboarding is loaded
+      iframe.focus();
+    } else {
+      container.classList.remove('varta-visible');
+      launcher.classList.remove('varta-chat-open');
+      chatIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
