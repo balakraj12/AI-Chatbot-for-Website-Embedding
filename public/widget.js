@@ -116,3 +116,20 @@
    const styleTag = document.createElement('style');
   styleTag.innerHTML = css;
   document.head.appendChild(styleTag);
+
+   // 3. Create Launcher DOM element
+  const launcher = document.createElement('div');
+  launcher.id = 'varta-launcher';
+  launcher.setAttribute('title', 'Chat with Varta Assistant');
+  launcher.innerHTML = `
+    <!-- Bubble Chat Icon -->
+    <svg class="varta-icon-chat" viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <!-- Close Cross Icon -->
+    <svg class="varta-icon-close" viewBox="0 0 24 24">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  `;
+  document.body.appendChild(launcher);
