@@ -133,3 +133,15 @@
     </svg>
   `;
   document.body.appendChild(launcher);
+
+   // 4. Create Chat Widget Iframe Container DOM element
+  const container = document.createElement('div');
+  container.id = 'varta-container';
+  
+  const iframe = document.createElement('iframe');
+  iframe.id = 'varta-iframe';
+  iframe.src = iframeUrl;
+  iframe.setAttribute('allow', 'clipboard-write'); // Allows message copying in iframe
+  
+  container.appendChild(iframe);
+  document.body.appendChild(container);
