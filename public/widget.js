@@ -181,3 +181,12 @@
   }
 
   launcher.addEventListener('click', toggleChat);
+
+  // Listen to messages from inside the iframe (e.g. if we add a close button inside the React widget)
+  window.addEventListener('message', function(event) {
+    if (event.data === 'varta-close-chat') {
+      if (isChatOpen) toggleChat();
+    }
+  });
+
+})();
