@@ -98,3 +98,17 @@
         bottom: 0;
         right: 0;
       }
+         #varta-launcher.varta-chat-open {
+        bottom: 15px;
+        right: 15px;
+        background: #ef4444; /* Give a noticeable red exit color on mobile top layers if floating */
+      }
+    }
+
+    #varta-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  `;
