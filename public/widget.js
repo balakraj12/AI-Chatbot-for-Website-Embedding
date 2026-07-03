@@ -56,3 +56,23 @@
     #varta-launcher .varta-icon-close {
       display: none;
     }
+
+    /* Floating Chat Container (Holds Iframe) */
+    #varta-container {
+      position: fixed;
+      bottom: 95px;
+      right: 20px;
+      width: 400px;
+      height: 600px;
+      max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 120px);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+      background: #ffffff;
+      z-index: 999998;
+      overflow: hidden;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
