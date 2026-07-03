@@ -82,3 +82,19 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+
+    /* Responsive adjustments for mobile views */
+    @media (max-width: 480px) {
+      #varta-container {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+      }
+      #varta-container.varta-visible {
+        bottom: 0;
+        right: 0;
+      }
