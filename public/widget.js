@@ -148,3 +148,8 @@
 
    // 5. Toggle behavior
   let isChatOpen = false;
+
+   function toggleChat() {
+    isChatOpen = !isChatOpen;
+    const chatIcon = launcher.querySelector('.varta-icon-chat');
+    const closeIcon = launcher.querySelector('.varta-icon-close');
