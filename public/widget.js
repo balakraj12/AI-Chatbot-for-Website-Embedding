@@ -145,3 +145,6 @@
   
   container.appendChild(iframe);
   document.body.appendChild(container);
+
+   // 5. Toggle behavior
+  let isChatOpen = false;
