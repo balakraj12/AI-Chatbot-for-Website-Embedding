@@ -76,3 +76,9 @@
       transform: translateY(20px) scale(0.95);
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    #varta-container.varta-visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
