@@ -43,3 +43,6 @@ const apiLimiter = rateLimit({
   message: { error: 'Too many requests from this IP, please try again later.' }
 });
 app.use('/api/', apiLimiter);
+
+// Serve static assets from the public directory (for hosting widget.js)
+app.use(express.static(path.join(__dirname, 'public')));
