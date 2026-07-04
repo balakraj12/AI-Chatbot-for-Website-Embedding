@@ -1,0 +1,8 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const Groq = require('groq-sdk');
+const path = require('path');
+require('dotenv').config();
