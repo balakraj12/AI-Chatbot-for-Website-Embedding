@@ -11,3 +11,6 @@ const config = require('./config');
 const Visitor = require('./models/Visitor');
 const Conversation = require('./models/Conversation');
 const Message = require('./models/Message');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
