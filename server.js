@@ -6,3 +6,8 @@ const rateLimit = require('express-rate-limit');
 const Groq = require('groq-sdk');
 const path = require('path');
 require('dotenv').config();
+
+const config = require('./config');
+const Visitor = require('./models/Visitor');
+const Conversation = require('./models/Conversation');
+const Message = require('./models/Message');
