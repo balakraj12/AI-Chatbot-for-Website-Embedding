@@ -59,3 +59,22 @@ const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/varta_assis
 mongoose.connect(mongoUri)
   .then(() => console.log('Successfully connected to MongoDB.'))
   .catch(err => console.error('MongoDB connection failure:', err));
+
+  // ==========================================
+// WIDGET ENDPOINTS (VISITOR ACTIONS)
+// ==========================================
+
+/**
+ * @route   POST /api/widget/onboard
+ * @desc    Onboard a first-time visitor, saving their name, profession, and goal.
+ *          Creates a new visitor profile and an active conversation.
+ */
+app.post('/api/widget/onboard', async (req, res) => {
+  const { name, profession, goal } = req.body;
+  console.log(`[WIDGET] [ONBOARD] Request received to onboard visitor: "${name}" (${profession}) | Goal: "${goal}"`);
+
+  try {
+    if (!name || !profession || !goal) {
+      console.warn(`[WIDGET] [ONBOARD] [BAD REQUEST] Missing onboarding fields.`);
+      return res.status(400).json({ error: 'Name, profession, and goal are all required.' });
+    }
