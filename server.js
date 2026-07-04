@@ -78,3 +78,7 @@ app.post('/api/widget/onboard', async (req, res) => {
       console.warn(`[WIDGET] [ONBOARD] [BAD REQUEST] Missing onboarding fields.`);
       return res.status(400).json({ error: 'Name, profession, and goal are all required.' });
     }
+
+     // Save the new visitor profile
+    const newVisitor = new Visitor({ name, profession, goal });
+    const savedVisitor = await newVisitor.save();
