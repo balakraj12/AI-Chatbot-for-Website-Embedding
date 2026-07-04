@@ -86,3 +86,12 @@ app.post('/api/widget/onboard', async (req, res) => {
      // Create a new conversation associated with this visitor
     const newConversation = new Conversation({ visitorId: savedVisitor._id });
     const savedConversation = await newConversation.save();
+
+     console.log(`[WIDGET] [ONBOARD] [SUCCESS] Onboarded "${savedVisitor.name}". Created Conversation ID: ${savedConversation._id}`);
+
+    return res.status(201).json({
+      message: 'Onboarding completed successfully.',
+      visitorId: savedVisitor._id,
+      conversationId: savedConversation._id,
+      visitorName: savedVisitor.name
+    });
