@@ -95,3 +95,9 @@ app.post('/api/widget/onboard', async (req, res) => {
       conversationId: savedConversation._id,
       visitorName: savedVisitor.name
     });
+
+     } catch (error) {
+    console.error('[WIDGET] [ONBOARD] [ERROR] Failed to complete onboarding:', error);
+    return res.status(500).json({ error: 'Failed to complete visitor onboarding.' });
+  }
+});
