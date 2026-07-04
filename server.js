@@ -82,3 +82,7 @@ app.post('/api/widget/onboard', async (req, res) => {
      // Save the new visitor profile
     const newVisitor = new Visitor({ name, profession, goal });
     const savedVisitor = await newVisitor.save();
+
+     // Create a new conversation associated with this visitor
+    const newConversation = new Conversation({ visitorId: savedVisitor._id });
+    const savedConversation = await newConversation.save();
