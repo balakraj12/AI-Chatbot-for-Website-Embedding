@@ -46,3 +46,10 @@ app.use('/api/', apiLimiter);
 
 // Serve static assets from the public directory (for hosting widget.js)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Initialize Groq API Client if key is available
+const groqApiKey = process.env.GROQ_API_KEY;
+if (!groqApiKey) {
+  console.warn('WARNING: GROQ_API_KEY is not defined in the environment. Chatbot requests will fail.');
+}
+const groq = new Groq({ apiKey: groqApiKey || 'placeholder_key' });
