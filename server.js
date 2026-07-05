@@ -173,3 +173,13 @@ app.post('/api/widget/chat', async (req, res) => {
       console.log(`================== [CHAT PIPELINE END] ==================\n`);
       return res.status(400).json({ error: 'Invalid visitor or conversation ID.' });
     }
+
+    // 1. Fetch visitor details to compile smart personalized context
+    const visitor = await Visitor.findById(visitorId);
+    if (!visitor) {
+      console.warn(`[WIDGET] [CHAT] [NOT FOUND] Visitor profile not found for ID: ${visitorId}`);
+      console.log(`================== [CHAT PIPELINE END] ==================\n`);
+      return res.status(404).json({ error: 'Visitor profile not found.' });
+    }
+
+    console.log(`[WIDGET] [CHAT] Loaded Context -> Name: "${visitor.name}" | Profession: "${visitor.profession}" | Goal: "${visitor.goal}"`);
