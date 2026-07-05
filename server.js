@@ -115,4 +115,9 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
       console.warn(`[WIDGET] [HISTORY] [BAD REQUEST] Invalid visitor ID: ${visitorId}`);
       return res.status(400).json({ error: 'Invalid visitor ID.' });
     }
-
+// Check if the visitor profile exists
+    const visitor = await Visitor.findById(visitorId);
+    if (!visitor) {
+      console.warn(`[WIDGET] [HISTORY] [NOT FOUND] Visitor not found: ${visitorId}`);
+      return res.status(404).json({ error: 'Visitor not found.' });
+    }
