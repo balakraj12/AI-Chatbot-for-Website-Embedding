@@ -101,3 +101,12 @@ app.post('/api/widget/onboard', async (req, res) => {
     return res.status(500).json({ error: 'Failed to complete visitor onboarding.' });
   }
 });
+
+
+/**
+ * @route   GET /api/widget/history/:visitorId
+ * @desc    Fetch previous message history and active conversation details for a returning visitor.
+ */
+app.get('/api/widget/history/:visitorId', async (req, res) => {
+  const { visitorId } = req.params;
+  console.log(`[WIDGET] [HISTORY] Fetching history logs for visitor ID: ${visitorId}`);
