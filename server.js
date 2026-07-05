@@ -121,3 +121,10 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
       console.warn(`[WIDGET] [HISTORY] [NOT FOUND] Visitor not found: ${visitorId}`);
       return res.status(404).json({ error: 'Visitor not found.' });
     }
+
+     // Find the latest conversation for this visitor
+    const conversation = await Conversation.findOne({ visitorId }).sort({ createdAt: -1 });
+    if (!conversation) {
+      console.log(`[WIDGET] [HISTORY] No active conversation session found for visitor "${visitor.name}".`);
+      return res.status(200).json({ visitorName: visitor.name, conversationId: null, messages: [] });
+    }
