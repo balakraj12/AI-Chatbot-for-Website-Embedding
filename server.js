@@ -160,3 +160,16 @@ app.post('/api/widget/chat', async (req, res) => {
   console.log(`\n================== [CHAT PIPELINE START] ==================`);
   console.log(`[WIDGET] [CHAT] New message received from visitor ID: ${visitorId}`);
   console.log(`[WIDGET] [CHAT] Message Text: "${text}"`);
+
+   try {
+    if (!visitorId || !conversationId || !text) {
+      console.warn(`[WIDGET] [CHAT] [BAD REQUEST] Missing required body fields.`);
+      console.log(`================== [CHAT PIPELINE END] ==================\n`);
+      return res.status(400).json({ error: 'visitorId, conversationId, and text are required.' });
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(visitorId) || !mongoose.Types.ObjectId.isValid(conversationId)) {
+      console.warn(`[WIDGET] [CHAT] [BAD REQUEST] Invalid ID formats.`);
+      console.log(`================== [CHAT PIPELINE END] ==================\n`);
+      return res.status(400).json({ error: 'Invalid visitor or conversation ID.' });
+    }
