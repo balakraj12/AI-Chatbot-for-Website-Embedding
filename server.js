@@ -132,3 +132,13 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
      // Retrieve all message history for this conversation
     const messages = await Message.find({ conversationId: conversation._id }).sort({ createdAt: 1 });
     console.log(`[WIDGET] [HISTORY] [SUCCESS] Retrieved ${messages.length} messages for visitor "${visitor.name}".`);
+
+     return res.status(200).json({
+      visitorName: visitor.name,
+      conversationId: conversation._id,
+      messages: messages.map(msg => ({
+        sender: msg.sender,
+        text: msg.text,
+        createdAt: msg.createdAt
+      }))
+    });
