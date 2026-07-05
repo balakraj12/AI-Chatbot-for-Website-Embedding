@@ -148,3 +148,15 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
     return res.status(500).json({ error: 'Failed to retrieve conversation history.' });
   }
 });
+
+/**
+ * @route   POST /api/widget/chat
+ * @desc    Handle chat messages. Merges visitor context and system specs,
+ *          saves conversation history, and returns the response from the Groq model.
+ */
+app.post('/api/widget/chat', async (req, res) => {
+  const { visitorId, conversationId, text } = req.body;
+  
+  console.log(`\n================== [CHAT PIPELINE START] ==================`);
+  console.log(`[WIDGET] [CHAT] New message received from visitor ID: ${visitorId}`);
+  console.log(`[WIDGET] [CHAT] Message Text: "${text}"`);
