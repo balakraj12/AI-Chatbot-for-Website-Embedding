@@ -128,3 +128,7 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
       console.log(`[WIDGET] [HISTORY] No active conversation session found for visitor "${visitor.name}".`);
       return res.status(200).json({ visitorName: visitor.name, conversationId: null, messages: [] });
     }
+
+     // Retrieve all message history for this conversation
+    const messages = await Message.find({ conversationId: conversation._id }).sort({ createdAt: 1 });
+    console.log(`[WIDGET] [HISTORY] [SUCCESS] Retrieved ${messages.length} messages for visitor "${visitor.name}".`);
