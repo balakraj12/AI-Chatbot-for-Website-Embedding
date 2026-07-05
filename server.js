@@ -214,4 +214,12 @@ app.post('/api/widget/chat', async (req, res) => {
 Please customize all your responses to fit this profile context. Direct your advice, examples, and greetings appropriately based on these values. Do not break character.
 `;
 
+ const fullSystemInstructions = `${config.SYSTEM_PROMPT}\n${visitorContext}`;
+    console.log(`[WIDGET] [CHAT] Compiled system instruction instructions for AI.`);
+
+    // Construct final prompt payloads
+    const promptMessages = [
+      { role: 'system', content: fullSystemInstructions },
+      ...formattedChatHistory
+    ];
    
