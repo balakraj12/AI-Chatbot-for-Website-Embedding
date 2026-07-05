@@ -110,3 +110,9 @@ app.post('/api/widget/onboard', async (req, res) => {
 app.get('/api/widget/history/:visitorId', async (req, res) => {
   const { visitorId } = req.params;
   console.log(`[WIDGET] [HISTORY] Fetching history logs for visitor ID: ${visitorId}`);
+    try {
+    if (!mongoose.Types.ObjectId.isValid(visitorId)) {
+      console.warn(`[WIDGET] [HISTORY] [BAD REQUEST] Invalid visitor ID: ${visitorId}`);
+      return res.status(400).json({ error: 'Invalid visitor ID.' });
+    }
+
