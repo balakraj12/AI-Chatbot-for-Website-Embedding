@@ -183,3 +183,12 @@ app.post('/api/widget/chat', async (req, res) => {
     }
 
     console.log(`[WIDGET] [CHAT] Loaded Context -> Name: "${visitor.name}" | Profession: "${visitor.profession}" | Goal: "${visitor.goal}"`);
+
+      // 2. Save the incoming visitor message in the DB
+    const visitorMessage = new Message({
+      conversationId,
+      sender: 'visitor',
+      text
+    });
+    await visitorMessage.save();
+    console.log(`[WIDGET] [CHAT] User message saved to database.`);
