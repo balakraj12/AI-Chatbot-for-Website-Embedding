@@ -142,3 +142,9 @@ app.get('/api/widget/history/:visitorId', async (req, res) => {
         createdAt: msg.createdAt
       }))
     });
+
+     } catch (error) {
+    console.error('[WIDGET] [HISTORY] [ERROR] Failed to fetch chat history:', error);
+    return res.status(500).json({ error: 'Failed to retrieve conversation history.' });
+  }
+});
