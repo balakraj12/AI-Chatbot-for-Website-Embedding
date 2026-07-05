@@ -203,3 +203,15 @@ app.post('/api/widget/chat', async (req, res) => {
       role: msg.sender === 'visitor' ? 'user' : 'assistant',
       content: msg.text
     }));
+
+     // 4. Inject system instructions combined with visitor context (Name, Profession, Goal)
+    const visitorContext = `
+[VISITOR PROFILE FOR PERSONALIZATION]:
+- Visitor Name: ${visitor.name}
+- Profession: ${visitor.profession}
+- Primary Goal: ${visitor.goal}
+
+Please customize all your responses to fit this profile context. Direct your advice, examples, and greetings appropriately based on these values. Do not break character.
+`;
+
+   
