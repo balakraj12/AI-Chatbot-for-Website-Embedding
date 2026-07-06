@@ -322,4 +322,10 @@ app.get('/api/conversations/:id', async (req, res) => {
   const { id } = req.params;
   console.log(`[ADMIN] [CONVERSATIONS] Request to load detailed log for conversation ID: ${id}`);
 
+   try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      console.warn(`[ADMIN] [CONVERSATIONS] [BAD REQUEST] Invalid conversation ID format.`);
+      return res.status(400).json({ error: 'Invalid conversation ID.' });
+    }
+
 
