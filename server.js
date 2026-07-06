@@ -247,3 +247,13 @@ Please customize all your responses to fit this profile context. Direct your adv
       console.log(`[WIDGET] [CHAT] [DEMO MODE] No GROQ_API_KEY. Using mock placeholder.`);
       aiReplyText = `[Demo Mode] Hi ${visitor.name}! I received your message: "${text}". Please configure GROQ_API_KEY in the backend .env to enable true AI responses.`;
     }
+
+     // 6. Save AI's response in the DB
+    const aiMessage = new Message({
+      conversationId,
+      sender: 'ai',
+      text: aiReplyText
+    });
+    await aiMessage.save();
+    console.log(`[WIDGET] [CHAT] AI response saved to database.`);
+    console.log(`================== [CHAT PIPELINE END] ==================\n`);
