@@ -272,3 +272,11 @@ app.get('/api/analytics', async (req, res) => {
     const totalVisitors = await Visitor.countDocuments();
     const totalConversations = await Conversation.countDocuments();
     const totalMessages = await Message.countDocuments();
+
+     // Aggregate visitor professions to see what audience uses the widget
+    const professionBreakdown = await Visitor.aggregate([
+      { $group: { _id: '$profession', count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 5 }
+    ]);
+
