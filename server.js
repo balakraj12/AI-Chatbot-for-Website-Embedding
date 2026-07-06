@@ -223,3 +223,16 @@ Please customize all your responses to fit this profile context. Direct your adv
       ...formattedChatHistory
     ];
    
+
+    // 5. Query Groq API
+    let aiReplyText = "I'm having trouble connecting to my brain right now. Please try again soon!";
+    
+    if (groqApiKey) {
+      try {
+        console.log(`[WIDGET] [CHAT] Dispatching prompt to Groq model: "${config.GROQ_MODEL}"...`);
+        const completion = await groq.chat.completions.create({
+          messages: promptMessages,
+          model: config.GROQ_MODEL,
+          temperature: 0.7,
+          max_tokens: 1024
+        });
