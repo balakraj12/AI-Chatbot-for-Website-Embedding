@@ -280,3 +280,11 @@ app.get('/api/analytics', async (req, res) => {
       { $limit: 5 }
     ]);
 
+      console.log(`[ADMIN] [ANALYTICS] [SUCCESS] Computed stats: Visitors=${totalVisitors}, Conversations=${totalConversations}, Messages=${totalMessages}`);
+
+    return res.status(200).json({
+      totalVisitors,
+      totalConversations,
+      totalMessages,
+      professionBreakdown
+    });
