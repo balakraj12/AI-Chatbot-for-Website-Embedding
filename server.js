@@ -314,4 +314,12 @@ app.get('/api/conversations', async (req, res) => {
   }
 });
 
+/**
+ * @route   GET /api/conversations/:id
+ * @desc    Retrieve the complete detailed chat logs and visitor details for a single conversation.
+ */
+app.get('/api/conversations/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(`[ADMIN] [CONVERSATIONS] Request to load detailed log for conversation ID: ${id}`);
+
 
