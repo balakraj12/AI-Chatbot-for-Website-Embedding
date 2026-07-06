@@ -305,3 +305,11 @@ app.get('/api/conversations', async (req, res) => {
     const conversations = await Conversation.find()
       .populate('visitorId')
       .sort({ createdAt: -1 });
+
+       console.log(`[ADMIN] [CONVERSATIONS] [SUCCESS] Retrieved ${conversations.length} total conversation headers.`);
+    return res.status(200).json(conversations);
+  } catch (error) {
+    console.error('[ADMIN] [CONVERSATIONS] [ERROR] Failed to list conversations:', error);
+    return res.status(500).json({ error: 'Failed to fetch conversations.' });
+  }
+});
