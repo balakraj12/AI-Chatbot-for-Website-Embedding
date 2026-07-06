@@ -328,4 +328,10 @@ app.get('/api/conversations/:id', async (req, res) => {
       return res.status(400).json({ error: 'Invalid conversation ID.' });
     }
 
+     const conversation = await Conversation.findById(id).populate('visitorId');
+    if (!conversation) {
+      console.warn(`[ADMIN] [CONVERSATIONS] [NOT FOUND] Conversation logs not found for ID: ${id}`);
+      return res.status(404).json({ error: 'Conversation not found.' });
+    }
+
 
