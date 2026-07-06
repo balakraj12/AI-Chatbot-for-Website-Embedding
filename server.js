@@ -236,3 +236,14 @@ Please customize all your responses to fit this profile context. Direct your adv
           temperature: 0.7,
           max_tokens: 1024
         });
+
+          aiReplyText = completion.choices[0].message.content;
+        console.log(`[WIDGET] [CHAT] Groq response received successfully.`);
+      } catch (groqErr) {
+        console.error('[WIDGET] [CHAT] [ERROR] Groq API call failed:', groqErr);
+        aiReplyText = "I encountered an API configuration error. Please ensure the Groq API key is valid.";
+      }
+    } else {
+      console.log(`[WIDGET] [CHAT] [DEMO MODE] No GROQ_API_KEY. Using mock placeholder.`);
+      aiReplyText = `[Demo Mode] Hi ${visitor.name}! I received your message: "${text}". Please configure GROQ_API_KEY in the backend .env to enable true AI responses.`;
+    }
