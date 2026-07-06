@@ -288,3 +288,9 @@ app.get('/api/analytics', async (req, res) => {
       totalMessages,
       professionBreakdown
     });
+
+     } catch (error) {
+    console.error('[ADMIN] [ANALYTICS] [ERROR] Failed to fetch analytics:', error);
+    return res.status(500).json({ error: 'Failed to fetch dashboard metrics.' });
+  }
+});
