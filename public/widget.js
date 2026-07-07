@@ -180,7 +180,7 @@
     }
   }
 
-  launcher.addEventListener('click', toggleChat);
+  
 
   // Listen to messages from inside the iframe (e.g. if we add a close button inside the React widget)
   window.addEventListener('message', function(event) {
