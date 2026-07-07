@@ -364,8 +364,4 @@ app.get('*', (req, res, next) => {
   }
   res.sendFile(path.join(frontendBuildPath, 'index.html'), err => {
     if (err) {
-      // In case frontend isn't compiled, output developer notice
-      res.status(200).send('Vaarta Backend running. Frontend dist not detected. Use npm run dev for dev environments.');
-    }
-  });
-});
+      
