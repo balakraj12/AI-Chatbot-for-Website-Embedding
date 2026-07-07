@@ -357,3 +357,15 @@ app.get('/api/conversations/:id', async (req, res) => {
 // This supports single-port hosting in production/staging.
 const frontendBuildPath = path.join(__dirname, '..', 'frontend', 'dist');
 app.use(express.static(frontendBuildPath));
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(frontendBuildPath, 'index.html'), err => {
+    if (err) {
+      // In case frontend isn't compiled, output developer notice
+      res.status(200).send('Vaarta Backend running. Frontend dist not detected. Use npm run dev for dev environments.');
+    }
+  });
+});
