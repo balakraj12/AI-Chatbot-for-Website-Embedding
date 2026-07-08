@@ -157,6 +157,11 @@
     if (isChatOpen) {
       container.style.display = 'block';
       // Reflow browser render to allow transition
+      container.offsetHeight;
+      container.classList.add('varta-visible');
+      launcher.classList.add('varta-chat-open');
+      chatIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
       
 
        // Focus on the iframe if input onboarding is loaded
