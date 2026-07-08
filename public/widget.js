@@ -186,10 +186,8 @@
   window.addEventListener('message', function(event) {
     if (event.data === 'varta-close-chat') {
       if (isChatOpen) toggleChat();
+      if (isChatOpen) toggleChat();
     }
   });
 
   })();
-
- 
-  
