@@ -149,7 +149,6 @@
    // 5. Toggle behavior
   let isChatOpen = false;
 
-
    function toggleChat() {
     isChatOpen = !isChatOpen;
     const chatIcon = launcher.querySelector('.varta-icon-chat');
@@ -158,11 +157,7 @@
     if (isChatOpen) {
       container.style.display = 'block';
       // Reflow browser render to allow transition
-      container.offsetHeight;
-      container.classList.add('varta-visible');
-      launcher.classList.add('varta-chat-open');
-      chatIcon.style.display = 'none';
-      closeIcon.style.display = 'block';
+      
 
        // Focus on the iframe if input onboarding is loaded
       iframe.focus();
