@@ -113,7 +113,9 @@
     }
   `;
 
-   
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = css;
+  document.head.appendChild(styleTag);
 
    // 3. Create Launcher DOM element
   const launcher = document.createElement('div');
