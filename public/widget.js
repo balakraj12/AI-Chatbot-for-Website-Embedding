@@ -171,6 +171,17 @@
       chatIcon.style.display = 'block';
       closeIcon.style.display = 'none';
 
+      // Hide layout after smooth transition is done
+      setTimeout(() => {
+        if (!container.classList.contains('varta-visible')) {
+          container.style.display = 'none';
+        }
+      }, 300);
+    }
+  }
+
+  launcher.addEventListener('click', toggleChat);
+
        
 
   // Listen to messages from inside the iframe (e.g. if we add a close button inside the React widget)
