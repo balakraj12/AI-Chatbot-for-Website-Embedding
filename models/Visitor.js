@@ -9,7 +9,11 @@ const VisitorSchema = new mongoose.Schema({
     trim: true
     
     },
-  
+  profession: {
+    type: String,
+    required: true,
+    trim: true
+  },.
    goal: {
     type: String,
     required: true,
