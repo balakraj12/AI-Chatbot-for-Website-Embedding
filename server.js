@@ -355,6 +355,9 @@ app.get('/api/conversations/:id', async (req, res) => {
 
 
 // If the frontend is built, serve index.html for non-API routes so SPA routing works.
+// This supports single-port hosting in production/staging.
+const frontendBuildPath = path.join(__dirname, '..', 'frontend', 'dist');
+app.use(express.static(frontendBuildPath));
 
 
 app.get('*', (req, res, next) => {
