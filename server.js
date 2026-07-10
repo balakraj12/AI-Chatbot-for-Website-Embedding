@@ -341,6 +341,11 @@ app.get('/api/conversations/:id', async (req, res) => {
       conversation,
       messages
     });
+     } catch (error) {
+    console.error('[ADMIN] [CONVERSATIONS] [ERROR] Failed to fetch conversation logs:', error);
+    return res.status(500).json({ error: 'Failed to retrieve conversation logs.' });
+  }
+});
 
     
 
