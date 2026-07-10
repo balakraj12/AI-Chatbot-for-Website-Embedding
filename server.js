@@ -360,7 +360,10 @@ const frontendBuildPath = path.join(__dirname, '..', 'frontend', 'dist');
 app.use(express.static(frontendBuildPath));
 
 
-
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
   res.sendFile(path.join(frontendBuildPath, 'index.html'), err => {
     if (err) {
       // In case frontend isn't compiled, output developer notice
