@@ -294,6 +294,24 @@ app.get('/api/analytics', async (req, res) => {
     return res.status(500).json({ error: 'Failed to fetch dashboard metrics.' });
   }
 });
+/**
+ * @route   GET /api/conversations
+ * @desc    Fetch a list of all conversations, including associated visitor profile data.
+ */
+app.get('/api/conversations', async (req, res) => {
+  console.log(`[ADMIN] [CONVERSATIONS] Request to list all conversations...`);
+  try {
+    const conversations = await Conversation.find()
+      .populate('visitorId')
+      .sort({ createdAt: -1 });
+
+       console.log(`[ADMIN] [CONVERSATIONS] [SUCCESS] Retrieved ${conversations.length} total conversation headers.`);
+    return res.status(200).json(conversations);
+  } catch (error) {
+    console.error('[ADMIN] [CONVERSATIONS] [ERROR] Failed to list conversations:', error);
+    return res.status(500).json({ error: 'Failed to fetch conversations.' });
+  }
+});
 
 
 
