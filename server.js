@@ -32,7 +32,7 @@ app.use(helmet({
 app.use(cors());
 
 // Parse incoming JSON payloads
-// app.use(express.json());
+app.use(express.json());
 
 // Set up API rate limiting to protect backend resources
 const apiLimiter = rateLimit({
