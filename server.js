@@ -54,11 +54,11 @@ if (!groqApiKey) {
 }
 const groq = new Groq({ apiKey: groqApiKey || 'placeholder_key' });
 
-// // Connect to MongoDB Database
-// const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/varta_assistant';
-// mongoose.connect(mongoUri)
-//   .then(() => console.log('Successfully connected to MongoDB.'))
-//   .catch(err => console.error('MongoDB connection failure:', err));
+// Connect to MongoDB Database
+const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/varta_assistant';
+mongoose.connect(mongoUri)
+  .then(() => console.log('Successfully connected to MongoDB.'))
+  .catch(err => console.error('MongoDB connection failure:', err));
 
   // ==========================================
 // WIDGET ENDPOINTS (VISITOR ACTIONS)
