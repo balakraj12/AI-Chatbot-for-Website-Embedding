@@ -45,7 +45,7 @@ const apiLimiter = rateLimit({
 app.use('/api/', apiLimiter);
 
 // Serve static assets from the public directory (for hosting widget.js)
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Initialize Groq API Client if key is available
 const groqApiKey = process.env.GROQ_API_KEY;
