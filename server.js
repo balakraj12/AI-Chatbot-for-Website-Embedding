@@ -21,12 +21,12 @@ const PORT = process.env.PORT || 5000;
 
 // Helmet sets secure HTTP headers.
 // Since we are loading this chatbot as an iframe, we need to allow frame embedding.
-app.use(helmet({
-  contentSecurityPolicy: false, // Disabling strict CSP to allow flexible development and resource loading
+// app.use(helmet({
+//   contentSecurityPolicy: false, // Disabling strict CSP to allow flexible development and resource loading
   crossOriginEmbedderPolicy: false,
   crossOriginResourcePolicy: false,
-//   frameguard: false // Essential: allows embedding the chat page in an iframe on user sites
-// }));
+  frameguard: false // Essential: allows embedding the chat page in an iframe on user sites
+}));
 
 // Enable Cross-Origin Resource Sharing (CORS) so external sites can load widget resources and make API calls
 app.use(cors());
