@@ -35,14 +35,14 @@ app.use(cors());
 app.use(express.json());
 
 // Set up API rate limiting to protect backend resources
-const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: { error: 'Too many requests from this IP, please try again later.' }
-});
-app.use('/api/', apiLimiter);
+// const apiLimiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 100, // Limit each IP to 100 requests per windowMs
+//   standardHeaders: true,
+//   legacyHeaders: false,
+//   message: { error: 'Too many requests from this IP, please try again later.' }
+// });
+// app.use('/api/', apiLimiter);
 
 // Serve static assets from the public directory (for hosting widget.js)
 app.use(express.static(path.join(__dirname, 'public')));
