@@ -23,8 +23,8 @@ const PORT = process.env.PORT || 5000;
 // Since we are loading this chatbot as an iframe, we need to allow frame embedding.
 app.use(helmet({
   contentSecurityPolicy: false, // Disabling strict CSP to allow flexible development and resource loading
-  crossOriginEmbedderPolicy: false,
-  crossOriginResourcePolicy: false,
+  // crossOriginEmbedderPolicy: false,
+  // crossOriginResourcePolicy: false,
   frameguard: false // Essential: allows embedding the chat page in an iframe on user sites
 }));
 
