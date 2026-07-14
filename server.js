@@ -28,8 +28,8 @@ app.use(helmet({
   frameguard: false // Essential: allows embedding the chat page in an iframe on user sites
 }));
 
-// // Enable Cross-Origin Resource Sharing (CORS) so external sites can load widget resources and make API calls
-// app.use(cors());
+// Enable Cross-Origin Resource Sharing (CORS) so external sites can load widget resources and make API calls
+app.use(cors());
 
 // Parse incoming JSON payloads
 app.use(express.json());
