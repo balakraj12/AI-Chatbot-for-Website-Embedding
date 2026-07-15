@@ -319,20 +319,20 @@ app.get('/api/conversations', async (req, res) => {
  * @route   GET /api/conversations/:id
  * @desc    Retrieve the complete detailed chat logs and visitor details for a single conversation.
  */
-// app.get('/api/conversations/:id', async (req, res) => {
-//   const { id } = req.params;
-//   console.log(`[ADMIN] [CONVERSATIONS] Request to load detailed log for conversation ID: ${id}`);
-//    try {
-//     if (!mongoose.Types.ObjectId.isValid(id)) {
-//       console.warn(`[ADMIN] [CONVERSATIONS] [BAD REQUEST] Invalid conversation ID format.`);
-//       return res.status(400).json({ error: 'Invalid conversation ID.' });
-//     }
-
-     const conversation = await Conversation.findById(id).populate('visitorId');
-    if (!conversation) {
-      console.warn(`[ADMIN] [CONVERSATIONS] [NOT FOUND] Conversation logs not found for ID: ${id}`);
-      return res.status(404).json({ error: 'Conversation not found.' });
+app.get('/api/conversations/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(`[ADMIN] [CONVERSATIONS] Request to load detailed log for conversation ID: ${id}`);
+   try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      console.warn(`[ADMIN] [CONVERSATIONS] [BAD REQUEST] Invalid conversation ID format.`);
+      return res.status(400).json({ error: 'Invalid conversation ID.' });
     }
+
+    //  const conversation = await Conversation.findById(id).populate('visitorId');
+    // if (!conversation) {
+    //   console.warn(`[ADMIN] [CONVERSATIONS] [NOT FOUND] Conversation logs not found for ID: ${id}`);
+    //   return res.status(404).json({ error: 'Conversation not found.' });
+    // }
 
      const messages = await Message.find({ conversationId: id }).sort({ createdAt: 1 });
     console.log(`[ADMIN] [CONVERSATIONS] [SUCCESS] Loaded ${messages.length} messages for transcript with "${conversation.visitorId?.name || 'Anonymous'}".`);
