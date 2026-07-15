@@ -256,7 +256,7 @@ Please customize all your responses to fit this profile context. Direct your adv
     });
     await aiMessage.save();
     console.log(`[WIDGET] [CHAT] AI response saved to database.`);
-    console.log(`================== [CHAT PIPELINE END] ==================\n`);
+    // console.log(`================== [CHAT PIPELINE END] ==================\n`);
 
     // ==========================================
 // ADMIN DASHBOARD ENDPOINTS
