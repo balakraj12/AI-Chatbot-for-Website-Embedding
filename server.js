@@ -334,8 +334,8 @@ app.get('/api/conversations/:id', async (req, res) => {
       return res.status(404).json({ error: 'Conversation not found.' });
     }
 
-    //  const messages = await Message.find({ conversationId: id }).sort({ createdAt: 1 });
-    // console.log(`[ADMIN] [CONVERSATIONS] [SUCCESS] Loaded ${messages.length} messages for transcript with "${conversation.visitorId?.name || 'Anonymous'}".`);
+     const messages = await Message.find({ conversationId: id }).sort({ createdAt: 1 });
+    console.log(`[ADMIN] [CONVERSATIONS] [SUCCESS] Loaded ${messages.length} messages for transcript with "${conversation.visitorId?.name || 'Anonymous'}".`);
 
     return res.status(200).json({
       conversation,
