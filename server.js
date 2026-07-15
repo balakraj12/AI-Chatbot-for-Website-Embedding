@@ -266,7 +266,9 @@ Please customize all your responses to fit this profile context. Direct your adv
  * @route   GET /api/analytics
  * @desc    Return high-level summary metrics (counts, professions) for admin overview.
  */
-
+app.get('/api/analytics', async (req, res) => {
+  console.log(`[ADMIN] [ANALYTICS] Request to fetch dashboard analytics overview.`);
+  try {
     const totalVisitors = await Visitor.countDocuments();
     const totalConversations = await Conversation.countDocuments();
     const totalMessages = await Message.countDocuments();
