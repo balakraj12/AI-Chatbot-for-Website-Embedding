@@ -198,7 +198,7 @@ app.post('/api/widget/chat', async (req, res) => {
       .sort({ createdAt: 1 })
       .limit(20);
 
-    // // Format past messages for the Groq API completion structure
+    // Format past messages for the Groq API completion structure
     // const formattedChatHistory = pastMessages.map(msg => ({
     //   role: msg.sender === 'visitor' ? 'user' : 'assistant',
     //   content: msg.text
