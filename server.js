@@ -199,10 +199,10 @@ app.post('/api/widget/chat', async (req, res) => {
       .limit(20);
 
     // Format past messages for the Groq API completion structure
-    // const formattedChatHistory = pastMessages.map(msg => ({
-    //   role: msg.sender === 'visitor' ? 'user' : 'assistant',
-    //   content: msg.text
-    // }));
+    const formattedChatHistory = pastMessages.map(msg => ({
+      role: msg.sender === 'visitor' ? 'user' : 'assistant',
+      content: msg.text
+    }));
 
      // 4. Inject system instructions combined with visitor context (Name, Profession, Goal)
     const visitorContext = `
