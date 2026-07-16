@@ -195,8 +195,8 @@ app.post('/api/widget/chat', async (req, res) => {
 
     // 3. Fetch past messages in the conversation (limit to last 20 for prompt token safety)
     const pastMessages = await Message.find({ conversationId })
-      // .sort({ createdAt: 1 })
-      // .limit(20);
+      .sort({ createdAt: 1 })
+      .limit(20);
 
     // Format past messages for the Groq API completion structure
     const formattedChatHistory = pastMessages.map(msg => ({
