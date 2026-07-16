@@ -190,8 +190,8 @@ app.post('/api/widget/chat', async (req, res) => {
       sender: 'visitor',
       text
     });
-    await visitorMessage.save();
-    console.log(`[WIDGET] [CHAT] User message saved to database.`);
+    // await visitorMessage.save();
+    // console.log(`[WIDGET] [CHAT] User message saved to database.`);
 
     // 3. Fetch past messages in the conversation (limit to last 20 for prompt token safety)
     const pastMessages = await Message.find({ conversationId })
