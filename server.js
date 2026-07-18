@@ -280,14 +280,14 @@ app.get('/api/analytics', async (req, res) => {
       { $limit: 5 }
     ]);
 
-    //   console.log(`[ADMIN] [ANALYTICS] [SUCCESS] Computed stats: Visitors=${totalVisitors}, Conversations=${totalConversations}, Messages=${totalMessages}`);
+      console.log(`[ADMIN] [ANALYTICS] [SUCCESS] Computed stats: Visitors=${totalVisitors}, Conversations=${totalConversations}, Messages=${totalMessages}`);
 
-    // return res.status(200).json({
-    //   totalVisitors,
-    //   totalConversations,
-    //   totalMessages,
-    //   professionBreakdown
-    // });
+    return res.status(200).json({
+      totalVisitors,
+      totalConversations,
+      totalMessages,
+      professionBreakdown
+    });
 
      } catch (error) {
     console.error('[ADMIN] [ANALYTICS] [ERROR] Failed to fetch analytics:', error);
