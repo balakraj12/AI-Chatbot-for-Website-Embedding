@@ -268,10 +268,10 @@ Please customize all your responses to fit this profile context. Direct your adv
  */
 app.get('/api/analytics', async (req, res) => {
   console.log(`[ADMIN] [ANALYTICS] Request to fetch dashboard analytics overview.`);
-  try {
-    const totalVisitors = await Visitor.countDocuments();
-    const totalConversations = await Conversation.countDocuments();
-    const totalMessages = await Message.countDocuments();
+  // try {
+  //   const totalVisitors = await Visitor.countDocuments();
+  //   const totalConversations = await Conversation.countDocuments();
+  //   const totalMessages = await Message.countDocuments();
 
     // Aggregate visitor professions to see what audience uses the widget
     const professionBreakdown = await Visitor.aggregate([
