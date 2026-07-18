@@ -289,11 +289,11 @@ app.get('/api/analytics', async (req, res) => {
       professionBreakdown
     });
 
-     } catch (error) {
-    console.error('[ADMIN] [ANALYTICS] [ERROR] Failed to fetch analytics:', error);
-    return res.status(500).json({ error: 'Failed to fetch dashboard metrics.' });
-  }
-});
+//      } catch (error) {
+//     console.error('[ADMIN] [ANALYTICS] [ERROR] Failed to fetch analytics:', error);
+//     return res.status(500).json({ error: 'Failed to fetch dashboard metrics.' });
+//   }
+// });
 /**
  * @route   GET /api/conversations
  * @desc    Fetch a list of all conversations, including associated visitor profile data.
