@@ -376,7 +376,7 @@ app.listen(PORT, () => {
   console.log(`=======================================================`);
   console.log(` VAARTA IS LIVE ON PORT ${PORT}`);
    console.log(` Running API server and loading static assets...`);
-  // console.log(` Default Admin Portal Password configured: "${config.ADMIN_PASSWORD}"`);
-  // console.log(`=======================================================`);
+  console.log(` Default Admin Portal Password configured: "${config.ADMIN_PASSWORD}"`);
+  console.log(`=======================================================`);
 });
  
